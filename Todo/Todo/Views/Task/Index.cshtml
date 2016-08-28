@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section FootScripts
+{
+    <script src="~/Scripts/app/tasks.module.js"></script>
+    <script src="~/Scripts/app/tasks.controller.js"></script>
+    <script src="~/Scripts/app/tasks.service.js"></script>
+}
+
+<section ng-app="tasksModule">
+    <h2>Tasks</h2>
+    <div ng-controller="TasksController as c">        
+        <div class="left-col dashed">
+            Tasks number: {{ c.tasks.length }}<br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Due Date</th>
+                        <th>Priority</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="task in c.tasks" ng-class="{'overdue-color': c.checkOverdue(task.DueDate)}">
+                        <td>{{ $index + 1 }} </td>
+                        <td>
+                            <input type="text" ng-model="task.Name" />
+                        </td>
+                        <td>
+                            <input type="datetime-local" ng-model="task.DueDate" />
+                        </td>
+                        <td>
+                            <input type="number" min="0" max="2" ng-model="task.Priority" />
+                        </td>
+                        <td>
+                            <input type="text" ng-model="task.Comment" />
+                        </td>
+                        <td>
+                            <input type="button" ng-click="c.completeTask(task)" value="Complete" />
+                        </td>
+                        <td>
+                            <input type="button" ng-click="c.updateTask(task)" value="Save" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="right-col dashed">
+            @*<input type="text" ng-model="c.newTaskTitle" placeholder="Enter a new task" />
+            <button ng-click="c.onAddNewTask()" ng-disabled="!c.isNewTaskTitleValid()">Add</button>*@
+            ADD NEW TASK
+            <br><br>
+            <form ng-submit="c.addNewTask()">
+                Name:<br>
+                <input type="text" name="name" ng-model="c.newTaskName" required />
+                <br>
+                Due date:<br>
+                <input type="datetime-local" name="dueDate" ng-model="c.newTaskDueDate" required />
+                <br>
+                Priority:<br>
+                <input type="number" min="0" max="2" name="priority" ng-model="c.newTaskPriority" required />
+                <br>
+                Comment:<br>
+                <input type="text" name="comment" ng-model="c.newTaskComment" placeholder="Optional" />
+                <br><br>
+                <input type="submit" value="Add" />
+            </form>
+        </div>
+    </div>
+</section>

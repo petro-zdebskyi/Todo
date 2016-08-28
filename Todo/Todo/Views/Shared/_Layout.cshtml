@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Todo</title>
+
+    <script src="~/Scripts/libs/angular.js"></script>
+    <link href="~/Styles/Todo.css" rel="stylesheet" />
+
+    @RenderSection("Styles", false)   
+    @RenderSection("HeadScripts", false)
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("FootScripts", false)
+</body>
+</html>

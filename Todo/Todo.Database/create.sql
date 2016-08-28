@@ -1,0 +1,16 @@
+﻿CREATE DATABASE Todo
+GO
+
+USE Todo
+CREATE TABLE tblTasks
+(
+	Id INT NOT NULL IDENTITY(1,1),
+	Name NVARCHAR(255) NOT NULL,
+	DueDate DATETIME NOT NULL,
+	[Priority] TINYINT NOT NULL,
+	Comment NVARCHAR(255),
+	IsCompleted BIT NOT NULL,
+	CONSTRAINT PK_tblTasks_Id PRIMARY KEY (Id),
+	CONSTRAINT [CK_tblTasks_Priority] CHECK ([Priority] <= 2)
+)
+GO

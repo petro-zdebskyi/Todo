@@ -1,0 +1,9 @@
+c:\Users\Petro\documents\visual studio 2015\Projects\Todo\Todo.Database\bin\Debug\Todo.Database.dacpac
+c:\Users\Petro\documents\visual studio 2015\Projects\Todo\Todo.Database\bin\Debug\Todo.Database.dll
+c:\Users\Petro\documents\visual studio 2015\Projects\Todo\Todo.Database\bin\Debug\Todo.Database.pdb
+c:\Users\Petro\documents\visual studio 2015\Projects\Todo\Todo.Database\obj\Debug\Todo.Database.dll
+c:\Users\Petro\documents\visual studio 2015\Projects\Todo\Todo.Database\obj\Debug\Todo.Database.pdb
+C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Database\obj\Debug\Model.xml
+C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Database\obj\Debug\refactor.xml
+C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Database\obj\Debug\postdeploy.sql
+C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Database\obj\Debug\predeploy.sql
