@@ -11,6 +11,7 @@
         vm.newTaskPriority = 0;
         vm.newtaskComment = "";
         vm.tasks = [];
+
         vm.addNewTask = addNewTask;
         vm.updateTask = updateTask;
         vm.completeTask = completeTask;

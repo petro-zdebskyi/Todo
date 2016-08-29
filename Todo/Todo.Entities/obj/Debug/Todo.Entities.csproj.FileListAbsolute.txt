@@ -3,3 +3,8 @@ C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Entities\bin\Debu
 C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Entities\obj\Debug\Todo.Entities.csprojResolveAssemblyReference.cache
 C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Entities\obj\Debug\Todo.Entities.dll
 C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Entities\obj\Debug\Todo.Entities.pdb
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Entities\bin\Debug\Todo.Entities.dll
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Entities\bin\Debug\Todo.Entities.pdb
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Entities\obj\Debug\Todo.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Entities\obj\Debug\Todo.Entities.dll
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Entities\obj\Debug\Todo.Entities.pdb

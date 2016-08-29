@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Configuration;
-using System.Data.SqlClient;
 using Todo.Repositories;
 using Todo.Entities;
 
@@ -10,18 +9,23 @@ namespace Todo.Controllers
 {
     public class TaskController : Controller
     {
-        #region Fields
+        #region Private Fields
 
         private readonly ITaskRepository _taskRepository;
 
         #endregion
+
+        #region Constructors
 
         public TaskController()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["Todo"].ConnectionString;
             _taskRepository = new SqlTaskRepository(connectionString);
         }
-        
+        #endregion
+
+        #region Actions
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -67,5 +71,7 @@ namespace Todo.Controllers
         {
             _taskRepository.Complete(taskId);
         }
+
+        #endregion
     }
 }
