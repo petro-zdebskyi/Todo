@@ -21,8 +21,8 @@ namespace Todo.Controllers
             var connectionString = ConfigurationManager.ConnectionStrings["Todo"].ConnectionString;
             _taskRepository = new SqlTaskRepository(connectionString);
         }
-
-        // GET: Task
+        
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -50,9 +50,9 @@ namespace Todo.Controllers
         }
 
         [HttpPost]
-        public int UpdateTask(int id, string name, DateTime dueDate, byte priority, string comment)
+        public void UpdateTask(int id, string name, DateTime dueDate, byte priority, string comment)
         {
-            int result = _taskRepository.Update(new TaskEntity()
+            _taskRepository.Update(new TaskEntity()
             {
                 Id = id,
                 Name = name,
@@ -60,15 +60,12 @@ namespace Todo.Controllers
                 Priority = priority,
                 Comment = comment ?? ""
             });
-
-            return result;
         }
 
         [HttpPost]
-        public int CompleteTask(int taskId)
+        public void CompleteTask(int taskId)
         {
-            int result = _taskRepository.Complete(taskId);
-            return result;
+            _taskRepository.Complete(taskId);
         }
     }
 }

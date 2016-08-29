@@ -57,7 +57,7 @@ namespace Todo.Repositories
             }
         }
 
-        public int Complete(int taskId)
+        public void Complete(int taskId)
         {
             _connection.Open();
             using (SqlCommand command = new SqlCommand())
@@ -66,11 +66,9 @@ namespace Todo.Repositories
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "spCompleteTask";
                 command.Parameters.AddWithValue("@taskId", taskId);
-
-                int executeStatus = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
                 _connection.Close();
-                return executeStatus;
             }
         }
 
@@ -104,7 +102,7 @@ namespace Todo.Repositories
             }
         }
 
-        public int Update(TaskEntity task)
+        public void Update(TaskEntity task)
         {
             var dateTime = task.DueDate.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -119,11 +117,9 @@ namespace Todo.Repositories
                 command.Parameters.AddWithValue("@dueDate", dateTime);
                 command.Parameters.AddWithValue("@priority", task.Priority);
                 command.Parameters.AddWithValue("@comment", task.Comment);
-
-                int executeStatus = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
                 _connection.Close();
-                return executeStatus;
             }
         }
 

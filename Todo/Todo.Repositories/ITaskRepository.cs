@@ -10,8 +10,8 @@ namespace Todo.Repositories
     public interface ITaskRepository
     {
         int Add(TaskEntity task);
-        int Complete(int taskId);
+        void Complete(int taskId);
         List<TaskEntity> GetAll();
-        int Update(TaskEntity task);
+        void Update(TaskEntity task);
     }
 }
