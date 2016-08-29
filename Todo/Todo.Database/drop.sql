@@ -1,3 +1,11 @@
 ﻿USE Todo
+GO
+
 DROP TABLE tblTasks
+GO
+
+DROP PROCEDURE spAddTask
+DROP PROCEDURE spCompleteTask
+DROP PROCEDURE spGetTasks
+DROP PROCEDURE spUpdateTask
 GO

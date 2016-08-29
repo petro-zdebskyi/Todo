@@ -2,6 +2,8 @@
 GO
 
 USE Todo
+GO
+
 CREATE TABLE tblTasks
 (
 	Id INT NOT NULL IDENTITY(1,1),

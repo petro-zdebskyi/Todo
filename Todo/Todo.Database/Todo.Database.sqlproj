@@ -62,5 +62,6 @@
     <None Include="create.sql" />
     <None Include="insert.sql" />
     <None Include="drop.sql" />
+    <None Include="procs.sql" />
   </ItemGroup>
 </Project>

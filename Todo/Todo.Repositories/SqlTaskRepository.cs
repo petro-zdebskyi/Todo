@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -32,38 +33,57 @@ namespace Todo.Repositories
         {
             var dateTime = task.DueDate.ToString("yyyy-MM-dd HH:mm:ss");
             int result = 0;
-            _connection.Open();
 
-            SqlCommand command = new SqlCommand("INSERT INTO tblTasks (Name, DueDate, Priority, IsCompleted, Comment) VALUES ('" + task.Name + "',convert(datetime,'" + dateTime + "',120),'" + task.Priority.ToString() + "',0,'" + task.Comment + "'); SELECT SCOPE_IDENTITY();", _connection);
-            using (SqlDataReader reader = command.ExecuteReader())
+            _connection.Open();
+            using (SqlCommand command = new SqlCommand())
             {
-                if (reader.Read())
+                command.Connection = _connection;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spAddTask";
+                command.Parameters.AddWithValue("@name", task.Name);
+                command.Parameters.AddWithValue("@dueDate", dateTime);
+                command.Parameters.AddWithValue("@priority", task.Priority);
+                command.Parameters.AddWithValue("@comment", task.Comment);
+
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    result = (int)(decimal)reader[0];
+                    if (reader.Read())
+                    {
+                        result = (int)(decimal)reader[0];
+                    }
+                    _connection.Close();
+                    return result;
                 }
             }
-
-            _connection.Close();
-
-            return result;
         }
 
         public int Complete(int taskId)
         {
             _connection.Open();
-            SqlCommand command = new SqlCommand("UPDATE tblTasks SET IsCompleted = 1 WHERE Id = " + taskId.ToString(), _connection);
-            int executeStatus = command.ExecuteNonQuery();
-            _connection.Close();
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = _connection;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spCompleteTask";
+                command.Parameters.AddWithValue("@taskId", taskId);
 
-            return executeStatus;
+                int executeStatus = command.ExecuteNonQuery();
+
+                _connection.Close();
+                return executeStatus;
+            }
         }
 
         public List<TaskEntity> GetAll()
         {
             List<TaskEntity> tasksList = new List<TaskEntity>();
+
             _connection.Open();
-            using (SqlCommand command = new SqlCommand("SELECT * FROM tblTasks WHERE IsCompleted = 0", _connection))
+            using (SqlCommand command = new SqlCommand())
             {
+                command.Connection = _connection;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spGetTasks";
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -77,11 +97,11 @@ namespace Todo.Repositories
                             Comment = (reader["Comment"] == null) ? string.Empty : reader["Comment"].ToString()
                         });
                     }
+
+                    _connection.Close();
+                    return tasksList;
                 }
             }
-            _connection.Close();
-
-            return tasksList;
         }
 
         public int Update(TaskEntity task)
@@ -89,11 +109,22 @@ namespace Todo.Repositories
             var dateTime = task.DueDate.ToString("yyyy-MM-dd HH:mm:ss");
 
             _connection.Open();
-            SqlCommand command = new SqlCommand("UPDATE tblTasks SET IsCompleted=0, Name='" + task.Name + "',DueDate=convert(datetime,'" + dateTime + "',120), Priority='" + task.Priority.ToString() + "', Comment='" + task.Comment + "' WHERE Id = " + task.Id, _connection);
-            int executeStatus = command.ExecuteNonQuery();
-            _connection.Close();
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = _connection;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "spUpdateTask";
+                command.Parameters.AddWithValue("@id", task.Id);
+                command.Parameters.AddWithValue("@name", task.Name);
+                command.Parameters.AddWithValue("@dueDate", dateTime);
+                command.Parameters.AddWithValue("@priority", task.Priority);
+                command.Parameters.AddWithValue("@comment", task.Comment);
 
-            return executeStatus;
+                int executeStatus = command.ExecuteNonQuery();
+
+                _connection.Close();
+                return executeStatus;
+            }
         }
 
         #endregion ITaskRepository

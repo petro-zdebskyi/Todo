@@ -5,3 +5,10 @@ C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Repositories\bin\
 C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Repositories\bin\Debug\Todo.Entities.pdb
 C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Repositories\obj\Debug\Todo.Repositories.dll
 C:\Users\Petro\Documents\Visual Studio 2015\Projects\Todo\Todo.Repositories\obj\Debug\Todo.Repositories.pdb
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\bin\Debug\Todo.Repositories.dll
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\bin\Debug\Todo.Repositories.pdb
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\bin\Debug\Todo.Entities.dll
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\bin\Debug\Todo.Entities.pdb
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\obj\Debug\Todo.Repositories.csprojResolveAssemblyReference.cache
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\obj\Debug\Todo.Repositories.dll
+C:\Users\Petro\Documents\Git\Todo\Todo\Todo.Repositories\obj\Debug\Todo.Repositories.pdb

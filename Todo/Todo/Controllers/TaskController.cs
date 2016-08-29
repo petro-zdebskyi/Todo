@@ -43,7 +43,7 @@ namespace Todo.Controllers
                 Name = name,
                 DueDate = dueDate,
                 Priority = priority,
-                Comment = comment
+                Comment = comment ?? ""
             });
 
             return result;
@@ -58,7 +58,7 @@ namespace Todo.Controllers
                 Name = name,
                 DueDate = dueDate,
                 Priority = priority,
-                Comment = comment
+                Comment = comment ?? ""
             });
 
             return result;

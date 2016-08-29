@@ -1,5 +1,5 @@
 ﻿USE Todo
---SELECT * FROM tblTasks
+GO
 
 INSERT INTO tblTasks (Name, DueDate, [Priority], IsCompleted, Comment) 
 VALUES 
